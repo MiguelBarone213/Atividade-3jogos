@@ -1,0 +1,313 @@
+import javax.swing.*;
+
+public class main {
+
+    public static void main(String[] args) {
+        int opcaoReiniciar;
+
+        do {
+            int VitQuiz = 0;
+            int points = 0;
+            double vitorias = 0;
+
+            JOptionPane.showMessageDialog(null, "Bem vindo aos jogos\n Vamos comecar com Jokenpo");
+            JOptionPane.showMessageDialog(null, "Voce ira escolher um numero de 1 a 3 para representar cada elemento\n(1 Para pedra, 2 para tesoura, 3 para papel)\n Ira ser 3 rodadas e voce ganhara 15 pontos a cada, para passar de nivel precisa ganhar no minimo 2");
+            
+            int jogada1 = Integer.parseInt(JOptionPane.showInputDialog("Faça sua jogada (1-Pedra, 2-Tesoura, 3-Papel)"));
+            if(jogada1 == 1) {
+                points += 15;
+                JOptionPane.showMessageDialog(null, "Parabens Voce ganhou a primeira rodada");
+                vitorias += 1;
+            } else if(jogada1 == 2) {
+                JOptionPane.showMessageDialog(null, "Parabens Voce empatou a primeira rodada, isso contara como 0,5 vitorias");
+                vitorias += 0.5;
+            } else if(jogada1 == 3){
+                JOptionPane.showMessageDialog(null, "Voce perdeu nao pontua");
+            }
+            
+            int jogada2 = Integer.parseInt(JOptionPane.showInputDialog("Faça sua jogada para a 2 rodada"));
+            if(jogada2 == 3) {
+                points += 15;
+                JOptionPane.showMessageDialog(null, "Parabens Voce ganhou a segunda rodada");
+                vitorias += 1;
+            } else if(jogada2 == 1) {
+                JOptionPane.showMessageDialog(null, "Parabens Voce empatou a segunda rodada, isso contara como 0,5 vitorias");
+                vitorias += 0.5;
+            } else if(jogada2 == 2){
+                JOptionPane.showMessageDialog(null, "Voce perdeu nao pontua");
+            }
+            
+            int jogada3 = Integer.parseInt(JOptionPane.showInputDialog("Faça sua jogada para a 3 rodada"));
+            if(jogada3 == 2) {
+                points += 15;
+                JOptionPane.showMessageDialog(null, "Parabens Voce ganhou a terceira rodada");
+                vitorias += 1;
+            } else if(jogada3 == 3) {
+                JOptionPane.showMessageDialog(null, "Parabens Voce empatou a terceira rodada, isso contara como 0,5 vitorias");
+                vitorias += 0.5;
+            } else if(jogada3 == 1){
+                JOptionPane.showMessageDialog(null, "Voce perdeu nao pontua");
+            }
+            
+            if(vitorias < 2) {
+                JOptionPane.showMessageDialog(null, "Voce nao conseguiu vitorias suficientes para passar de nivel. Jogo encerrado.");
+                opcaoReiniciar = JOptionPane.showConfirmDialog(null, "Deseja reiniciar o jogo?", "Fim de Jogo", JOptionPane.YES_NO_OPTION);
+                if (opcaoReiniciar == JOptionPane.YES_OPTION) continue; else break;
+            }
+            
+            JOptionPane.showMessageDialog(null, "Voce ganhou "+vitorias+" partidas \n e fez "+points+" pontos no total");
+
+            JOptionPane.showMessageDialog(null,"Parabens agora voce vai jogar a 2 fase");
+            JOptionPane.showMessageDialog(null, "Nesta fase voce Ira responder um quiz,\n Voce precisa fazer 60 pontos, ja somados com o da fase anterior,\n Cada pergunta acertada ira valer 15 pontos");
+            
+            int quizJavaVit = 0;
+            int pergunta1 = Integer.parseInt(JOptionPane.showInputDialog(null, "Primeira pergunta: Como voce faz o Usuario inserir algum valor com JOptionPane?\n digite 1 :JOptionPane.showMessageDialog\n digite 2: JOptionPane.inputDialog\n digite 3: JOptionPane.ConfirmDialog "));
+            switch (pergunta1) {
+                case 1:
+                case 3:
+                    JOptionPane.showMessageDialog(null,"Voce errou e nao ganhou pontos");
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(null,"Voce acertou e ganhou 15 pontos");
+                    points += 15;
+                    quizJavaVit += 1;
+                    break;
+            }
+            
+            int pergunta2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Segunda pergunta: Qual a diferenca do for pro while?\n digite 1: O for é usado quando você já sabe o número exato de repetições, enquanto o while repete baseado em uma condição que pode mudar\n digite 2: O for serve apenas para repetir códigos em interfaces visuais, e o while só funciona para fazer cálculos matemáticos complexos.\n digite 3: O for executa o código infinitamente até o computador travar, enquanto o while só roda o código uma única vez e para."));
+            switch (pergunta2) {
+                case 2:
+                case 3:
+                    JOptionPane.showMessageDialog(null,"Voce errou e nao ganhou pontos");
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null,"Voce acertou e ganhou 15 pontos");
+                    points += 15;
+                    quizJavaVit += 1;
+                    break;
+            }
+            
+            int pergunta3 = Integer.parseInt(JOptionPane.showInputDialog(null, "Terceira pergunta: Qual dessas é uma palavra proibida? \n digite 1: locate\n digite 2: point\n digite 3: private"));
+            switch (pergunta3) {
+                case 1:
+                case 2:
+                    JOptionPane.showMessageDialog(null,"Voce errou e nao ganhou pontos");
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null,"Voce acertou e ganhou 15 pontos");
+                    points += 15;
+                    quizJavaVit += 1;
+                    break;
+            }
+            
+            int pergunta4 = Integer.parseInt(JOptionPane.showInputDialog(null, "Quarta pergunta: Qual ferramenta voce usa para preencher um array?\n digite 1: For \n digite 2: if\n digite 3: switch "));
+            switch (pergunta4) {
+                case 2:
+                case 3:
+                    JOptionPane.showMessageDialog(null,"Voce errou e nao ganhou pontos");
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null,"Voce acertou e ganhou 15 pontos");
+                    points += 15;
+                    quizJavaVit += 1;
+                    break;
+            }
+            
+            int pergunta5 = Integer.parseInt(JOptionPane.showInputDialog(null, "Quinta pergunta: Qual variavel inclui o numero 5.2?\n digite 1 :inteiro\n digite 2: bolleano\n digite 3:double ou float "));
+            switch (pergunta5) {
+                case 1:
+                case 2:
+                    JOptionPane.showMessageDialog(null,"Voce errou e nao ganhou pontos");
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null,"Voce acertou e ganhou 15 pontos");
+                    points += 15;
+                    quizJavaVit += 1;
+                    break;
+            }
+            
+            JOptionPane.showMessageDialog(null, "Voce acertou "+ quizJavaVit +" perguntas \n e esta com "+points+" pontos no total");
+            if(points < 60) {
+                JOptionPane.showMessageDialog(null, "Voce nao conseguiu vitorias suficientes para passar de nivel. Jogo encerrado.");
+                opcaoReiniciar = JOptionPane.showConfirmDialog(null, "Deseja reiniciar o jogo?", "Fim de Jogo", JOptionPane.YES_NO_OPTION);
+                if (opcaoReiniciar == JOptionPane.YES_OPTION) continue; else break;
+            }
+
+            JOptionPane.showMessageDialog(null, "Parabéns, agora você vai jogar a 3ª Fase!");
+            JOptionPane.showMessageDialog(null, "Nesta fase você irá responder um quiz de Pokémon com 10 perguntas.\nVocê precisa alcançar pelo menos 135 pontos no total para vencer!\nCada pergunta acertada vale 15 pontos.");
+
+            int quizPokeVit = 0;
+
+            int poke1 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Primeira pergunta (Pokémon): Qual é o Pokémon número #0001 na Pokédex?\n" +
+                "Digite 1: Charmander\n" +
+                "Digite 2: Bulbasaur\n" +
+                "Digite 3: Pikachu"));
+            switch (poke1) {
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            int poke2 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Segunda pergunta (Pokémon): Qual tipo é super efetivo contra Pokémon do tipo Água?\n" +
+                "Digite 1: Fogo\n" +
+                "Digite 2: Pedra\n" +
+                "Digite 3: Planta"));
+            switch (poke2) {
+                case 3:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            int poke3 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Terceira pergunta (Pokémon): Qual é a evolução do Pikachu?\n" +
+                "Digite 1: Raichu\n" +
+                "Digite 2: Pichu\n" +
+                "Digite 3: Jolteon"));
+            switch (poke3) {
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            int poke4 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Quarta pergunta (Pokémon): Quantas evoluções diferentes o Eevee possui no total?\n" +
+                "Digite 1: 3 evoluções\n" +
+                "Digite 2: 8 evoluções\n" +
+                "Digite 3: 5 evoluções"));
+            switch (poke4) {
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            int poke5 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Quinta pergunta (Pokémon): Qual item evolui o Snorlax a partir do Munchlax?\n" +
+                "Digite 1: Pedra da Lua\n" +
+                "Digite 2: Alta Amizade (Felicidade)\n" +
+                "Digite 3: Pedra do Trovão"));
+            switch (poke5) {
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            int poke6 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Sexta pergunta (Pokémon): Qual é o Pokémon conhecido como 'O Deus dos Pokémon'?\n" +
+                "Digite 1: Mewtwo\n" +
+                "Digite 2: Arceus\n" +
+                "Digite 3: Rayquaza"));
+            switch (poke6) {
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            int poke7 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Sétima pergunta (Pokémon): Qual destes Pokémon é um lendário de Hoenn?\n" +
+                "Digite 1: Kyogre\n" +
+                "Digite 2: Lugia\n" +
+                "Digite 3: Dialga"));
+            switch (poke7) {
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            int poke8 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Oitava pergunta (Pokémon): Ataques do tipo Normal não causam dano em qual tipo?\n" +
+                "Digite 1: Aço\n" +
+                "Digite 2: Fantasma\n" +
+                "Digite 3: Noturno"));
+            switch (poke8) {
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            int poke9 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Nona pergunta (Pokémon): Qual Pokebola tem 100% de chance de captura sem falhar?\n" +
+                "Digite 1: Ultra Ball\n" +
+                "Digite 2: Great Ball\n" +
+                "Digite 3: Master Ball"));
+            switch (poke9) {
+                case 3:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            int poke10 = Integer.parseInt(JOptionPane.showInputDialog(null, 
+                "Décima pergunta (Pokémon): Qual destas é a tipagem do Charizard?\n" +
+                "Digite 1: Fogo e Dragão\n" +
+                "Digite 2: Fogo e Voador\n" +
+                "Digite 3: Apenas Fogo"));
+            switch (poke10) {
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Você acertou e ganhou 15 pontos!");
+                    points += 15;
+                    quizPokeVit += 1;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Você errou e não ganhou pontos.");
+                    break;
+            }
+
+            JOptionPane.showMessageDialog(null, "Você acertou " + quizPokeVit + " perguntas nesta fase\ne terminou com " + points + " pontos no total!");
+
+            if (points < 135) {
+                JOptionPane.showMessageDialog(null, "Você não atingiu a pontuação mínima final. Jogo encerrado.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Parabéns! Você completou e venceu todas as fases do jogo com sucesso!");
+            }
+
+            opcaoReiniciar = Integer.parseInt(JOptionPane.showInputDialog(null, "Deseja jogar denovo? se sim coloque o numero 1 se nao coloque 0"));
+
+        } while (opcaoReiniciar == 1);
+    }
+}

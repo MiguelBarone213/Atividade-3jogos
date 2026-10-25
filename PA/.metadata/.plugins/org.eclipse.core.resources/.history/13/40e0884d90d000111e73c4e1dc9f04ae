@@ -1,0 +1,13 @@
+import javax.swing.*;
+public class main {
+
+	public static void main(String[] args) {
+		JOptionPane.showMessageDialog(null, "Bem vindo aos jogos\n vamos comecar com Jokenpo");
+		JOptionPane.showMessageDialog(null, "voce ira escolher um numero de 1 a 3 para representar cada elemento\n(1 para pedra, 2 para tesoura, 3 para papel)\n ira ser 3 rodadas e voce ganhara 15 pontos a cada, para passar de nivel precisa ganhar 2 ");
+		
+		
+		
+
+	}
+
+}
